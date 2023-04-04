@@ -1,6 +1,8 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.springframework.cloud.contract.verifier.config.TestMode
 
+val kotlinScriptingCompilerVersion: String by project
+
 plugins {
 	id("org.springframework.boot") version "3.0.5"
 	id("io.spring.dependency-management") version "1.1.0"
@@ -29,6 +31,10 @@ dependencies {
 	testImplementation("io.projectreactor:reactor-test")
 	testImplementation("io.rest-assured:spring-web-test-client")
 	testImplementation("org.springframework.cloud:spring-cloud-starter-contract-verifier")
+	testImplementation("org.springframework.cloud:spring-cloud-contract-spec-kotlin")
+
+	// Upgrade kotlin-scripting-compiler-embeddable to be aligned with your current Kotlin version - https://github.com/spring-cloud/spring-cloud-contract/issues/1600
+	contractTestImplementation("org.jetbrains.kotlin:kotlin-scripting-compiler-embeddable:1.7.22")
 }
 
 dependencyManagement {
