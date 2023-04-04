@@ -61,5 +61,6 @@ tasks.contractTest {
 contracts {
 	testMode.set(TestMode.WEBTESTCLIENT)
 	setBaseClassForTests("com.mkacunha.BaseTest")
+	setContractsDslDir(File("${project.rootDir}/src/test/resources/contracts"))
 }
 
